@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whip&Wondr - Coming Soon</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #e8f5e9;
+            color: #388e3c;
+            text-align: center;
+        }
+
+        header {
+            padding: 20px;
+            background-color: #388e3c;
+            color: white;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            letter-spacing: 2px;
+        }
+
+        header span {
+            color: #e8f5e9;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .countdown {
+            font-size: 2em;
+            margin: 30px 0;
+        }
+
+        .newsletter {
+            margin: 40px 0;
+        }
+
+        .newsletter input[type="email"] {
+            padding: 10px;
+            font-size: 1em;
+            width: 300px;
+            max-width: 80%;
+            border: 2px solid #388e3c;
+            border-radius: 5px;
+        }
+
+        .newsletter button {
+            padding: 10px 20px;
+            font-size: 1em;
+            color: white;
+            background-color: #388e3c;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .newsletter button:hover {
+            background-color: #2e7d32;
+        }
+
+        footer {
+            padding: 20px;
+            background-color: #388e3c;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Whip<span>&</span>Wondr</h1>
+        <p>Crafting something amazing. Stay tuned!</p>
+    </header>
+    <main>
+        <h2>Coming Soon</h2>
+        <div class="countdown" id="countdown">00:00:00</div>
+        <div class="newsletter">
+            <p>Subscribe to get notified when we launch:</p>
+            <form action="#">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Notify Me</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>Follow us:</p>
+        <a href="https://instagram.com/whipandwondr" target="_blank">Instagram</a>
+    </footer>
+
+    <script>
+        // Countdown Timer: 1 Hour
+        const countdownElement = document.getElementById("countdown");
+        let timeLeft = 60 * 60; // 1 hour in seconds
+
+        function updateCountdown() {
+            if (timeLeft <= 0) {
+                countdownElement.innerHTML = "Time's Up!";
+                return;
+            }
+
+            const hours = Math.floor(timeLeft / 3600);
+            const minutes = Math.floor((timeLeft % 3600) / 60);
+            const seconds = timeLeft % 60;
+
+            countdownElement.innerHTML = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            timeLeft--;
+        }
+
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
